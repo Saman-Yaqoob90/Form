@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Registeration Form</h2>
+
+    <form id="regForm">
+      <input type="text" id="name" placeholder="Full Name">
+      <small class="error"></small>
+      <input type="email" id="email" placeholder="Email">
+      <small class="error"></small>
+      <input type="password" id="password" placeholder="Password">
+      <small class="error"></small>
+      <input type="password" id="cpassword" placeholder="Confirm Password">
+      <small class="error"></small>
+      <select id="gender">
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+      <small class="error"></small>
+      <button type="submit">Register</button>
+      <p id="success"></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+<script>
+document.getElementById("regForm").addEventListener("submit", function(e) {
+  e.preventDefault(); 
+
+  let isValid = true;
+
+  let name = document.getElementById("name");
+  let email = document.getElementById("email");
+  let password = document.getElementById("password");
+  let cpassword = document.getElementById("cpassword");
+  let gender = document.getElementById("gender");
+  let success = document.getElementById("success");
+
+  let errors = document.querySelectorAll(".error");
+  errors.forEach(el => el.textContent = "");
+  success.textContent = "";
+
+  // Name
+  if (name.value.trim() === "") {
+    name.nextElementSibling.textContent = "Name is required";
+    isValid = false;
+  }
+  let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (email.value.trim() === "") {
+    email.nextElementSibling.textContent = "Email is required";
+    isValid = false;
+  } else if (!email.value.match(emailPattern)) {
+    email.nextElementSibling.textContent = "Invalid email";
+    isValid = false;
+  }
+  if (password.value.length < 6) {
+    password.nextElementSibling.textContent = "Min 6 characters";
+    isValid = false;
+  }
+    if (cpassword.value !== password.value || cpassword.value === "") {
+    cpassword.nextElementSibling.textContent = "Passwords do not match";
+    isValid = false;
+  }
+  if (gender.value === "") {
+    gender.nextElementSibling.textContent = "Select gender";
+    isValid = false;
+  }
+  if (isValid) {
+    success.textContent = "✅ Registration Successful!";
+    document.getElementById("regForm").reset();
+  }
+});
+
+</script>
+</html>

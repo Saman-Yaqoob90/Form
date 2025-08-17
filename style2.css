@@ -1,0 +1,61 @@
+/* Background gradient */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6d6a65, #4576d1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  width: 350px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+h2 {
+  margin-bottom: 20px;
+  color: #047091;
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+input:focus, select:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 8px #6c63ff50;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #215b92, #6d7b7e);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+.error {
+  color: red;
+  font-size: 13px;
+  text-align: left;
+}
+#success {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
